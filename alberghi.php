@@ -51,6 +51,7 @@ $hotels = [
 
 ?>
 
+<!-- Milestone 0 -->
 <span><?php
     for ($i=0; $i < count($hotels); $i++) { 
         echo var_dump($hotels[$i]);
@@ -58,6 +59,34 @@ $hotels = [
         echo "<br>";
     }
 ?></span>
+
+<!-- Milestone 1 -->
+<table class="table table-dark table-striped table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Descrizione</th>
+            <th scope="col">Parcheggio</th>
+            <th scope="col">Voto</th>
+            <th scope="col">Distanza dal centro</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        for ($i=0; $i < count($hotels); $i++) {
+            echo "<tr>";
+            echo "<td>" . $hotels[$i]['name'] . "</td>";
+            echo "<td>" . $hotels[$i]['description'] . "</td>";
+            echo "<td>" . ($hotels[$i]['parking'] ? 'Si' : 'No') . "</td>";
+            echo "<td>" . $hotels[$i]['vote'] . "</td>";
+            echo "<td>" . $hotels[$i]['distance_to_center'] . "</td>";
+            echo "</tr>";
+        }
+        ?>
+    </tbody>
+
+</table>
+
 </body>
 </html>
 
