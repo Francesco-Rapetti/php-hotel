@@ -49,6 +49,9 @@ $hotels = [
 
 ];
 
+// Milestone 2
+$votoMinimo = $_GET['voto'];
+
 ?>
 
 <!-- Milestone 0 -->
@@ -74,13 +77,16 @@ $hotels = [
     <tbody>
         <?php
         for ($i=0; $i < count($hotels); $i++) {
-            echo "<tr>";
-            echo "<td>" . $hotels[$i]['name'] . "</td>";
-            echo "<td>" . $hotels[$i]['description'] . "</td>";
-            echo "<td>" . ($hotels[$i]['parking'] ? 'Si' : 'No') . "</td>";
-            echo "<td>" . $hotels[$i]['vote'] . "</td>";
-            echo "<td>" . $hotels[$i]['distance_to_center'] . "</td>";
-            echo "</tr>";
+            // Milestone 2
+            if ($hotels[$i]['vote'] >= $votoMinimo) {
+                echo "<tr>";
+                echo "<td>" . $hotels[$i]['name'] . "</td>";
+                echo "<td>" . $hotels[$i]['description'] . "</td>";
+                echo "<td>" . ($hotels[$i]['parking'] ? 'Si' : 'No') . "</td>";
+                echo "<td>" . $hotels[$i]['vote'] . "</td>";
+                echo "<td>" . $hotels[$i]['distance_to_center'] . "</td>";
+                echo "</tr>";
+            }
         }
         ?>
     </tbody>
